@@ -943,3 +943,19 @@ input[type="time"], input[type="number"] {
 }
 .proj-bar div { height: 100%; background: var(--primary); border-radius: 999px; }
 .proj-min { text-align: right; }
+
+/* ============================================================
+   v0.3: записи наставника из journal.json
+   ============================================================ */
+.session-card.remote {
+  border-left: 3px solid var(--primary);
+  cursor: default;
+}
+
+.remote-badge {
+  font-size: 0.65rem;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.plan-item.remote .plan-text { color: var(--text); }

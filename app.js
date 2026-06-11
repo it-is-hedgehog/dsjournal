@@ -20,6 +20,35 @@
   let currentScreen = 'today';
   let timerTick = null;
 
+  // journal.json — записи наставника (SSOT в репозитории, read-only)
+  let REMOTE = { sessions: [], plan: [] };
+
+  async function loadRemote() {
+    try {
+      const r = await fetch('data/journal.json', { cache: 'no-cache' });
+      const data = await r.json();
+      const r7 = { yes: 'да', partial: 'частично', no: 'нет' };
+      REMOTE.sessions = (data.entries || []).map(e => ({
+        id: 'r-' + e.id, date: e.date, start: e.start, end: e.end,
+        pauses: e.minutes_paused || 0, minutes: e.minutes_total,
+        solo: e.minutes_solo || 0, project: e.project || '',
+        done: e.task || '', notes: e.notes || '',
+        diffS: e.self_complexity ?? '', diffM: e.mentor_complexity ?? '',
+        repeat7: r7[e.can_repeat_7d] || '', remote: true
+      }));
+      REMOTE.plan = data.plan || [];
+    } catch (e) { /* офлайн или файла нет — работаем на локальных данных */ }
+  }
+
+  // все сессии: записи наставника из репо + локальные с телефона
+  function allSessions() {
+    return [...REMOTE.sessions, ...sessions];
+  }
+
+  function remotePlanFor(dateKey) {
+    return (REMOTE.plan || []).filter(p => p.date === dateKey);
+  }
+
   // стартовые дедлайны — версионируемый сид (новые версии доезжают
   // до телефона, где localStorage уже заполнен)
   const K_DLSEED = 'dsj_dlseed_v1';
@@ -73,6 +102,7 @@
 
   // чистые минуты сессии: конец - старт - паузы (поддержка перехода через полночь)
   function netMinutes(s) {
+    if (s.minutes != null) return s.minutes; // записи наставника несут чистое время явно
     const [sh, sm] = s.start.split(':').map(Number);
     const [eh, em] = s.end.split(':').map(Number);
     let mins = (eh * 60 + em) - (sh * 60 + sm);
@@ -139,18 +169,32 @@
       });
       list.appendChild(li);
     });
-    if (plan.length === 0) {
+    // план от наставника (из journal.json, read-only)
+    const rplan = remotePlanFor(todayKey());
+    rplan.forEach(p => {
+      const li = document.createElement('li');
+      li.className = 'plan-item remote';
+      li.innerHTML =
+        `<span class="plan-check">📌</span>` +
+        `<span class="plan-text">${escapeHtml(p.task)}</span>` +
+        `<span class="plan-est">${p.planned_minutes ? p.planned_minutes + 'м' : ''}</span>` +
+        `<span class="remote-badge">наставник</span>`;
+      list.appendChild(li);
+    });
+
+    if (plan.length === 0 && rplan.length === 0) {
       list.innerHTML = '<li class="muted">План пуст — добавь задачи на день</li>';
     }
-    const est = plan.reduce((a, t) => a + (Number(t.est) || 0), 0);
+    const est = plan.reduce((a, t) => a + (Number(t.est) || 0), 0) +
+      rplan.reduce((a, p) => a + (Number(p.planned_minutes) || 0), 0);
     const doneCnt = plan.filter(t => t.done).length;
     document.getElementById('plan-summary').textContent =
-      plan.length ? `${doneCnt}/${plan.length} · план ${fmtMin(est)}` : '';
+      (plan.length + rplan.length) ? `${doneCnt}/${plan.length + rplan.length} · план ${fmtMin(est)}` : '';
 
     // сессии за сегодня
     const box = document.getElementById('today-sessions');
     box.innerHTML = '';
-    const todays = sessions.filter(s => s.date === todayKey());
+    const todays = allSessions().filter(s => s.date === todayKey());
     todays.forEach(s => box.appendChild(sessionCard(s)));
     const total = todays.reduce((a, s) => a + netMinutes(s), 0);
     const solo = todays.reduce((a, s) => a + (Number(s.solo) || 0), 0);
@@ -163,7 +207,7 @@
 
   function sessionCard(s) {
     const div = document.createElement('div');
-    div.className = 'session-card';
+    div.className = 'session-card' + (s.remote ? ' remote' : '');
     const net = netMinutes(s);
     const soloPct = net ? Math.round((Number(s.solo) || 0) / net * 100) : 0;
     div.innerHTML =
@@ -172,8 +216,9 @@
       `<div class="session-done">${escapeHtml(s.done || '')}</div>` +
       `<div class="session-meta">самост. ${soloPct}%` +
       (s.diffS ? ` · сложн. ${s.diffS}${s.diffM ? '/' + s.diffM : ''}` : '') +
-      (s.repeat7 ? ` · повтор-7д: ${s.repeat7}` : '') + `</div>`;
-    div.addEventListener('click', () => openSessionForm(s.id));
+      (s.repeat7 ? ` · повтор-7д: ${s.repeat7}` : '') +
+      (s.remote ? ` · <span class="remote-badge">🤖 наставник</span>` : '') + `</div>`;
+    if (!s.remote) div.addEventListener('click', () => openSessionForm(s.id));
     return div;
   }
 
@@ -326,12 +371,13 @@
   }
 
   function rangeStats(dayKeys) {
-    const ss = sessions.filter(s => dayKeys.includes(s.date));
+    const ss = allSessions().filter(s => dayKeys.includes(s.date));
     const fact = ss.reduce((a, s) => a + netMinutes(s), 0);
     const solo = ss.reduce((a, s) => a + (Number(s.solo) || 0), 0);
     let planned = 0;
     dayKeys.forEach(k => {
       planned += (plans[k] || []).reduce((a, t) => a + (Number(t.est) || 0), 0);
+      planned += remotePlanFor(k).reduce((a, p) => a + (Number(p.planned_minutes) || 0), 0);
     });
     return { fact, solo, planned, sessions: ss };
   }
@@ -376,7 +422,7 @@
     let streak = 0;
     for (let i = 0; i < 365; i++) {
       const d = new Date(); d.setDate(d.getDate() - i);
-      const has = sessions.some(s => s.date === todayKey(d));
+      const has = allSessions().some(s => s.date === todayKey(d));
       if (has) streak++;
       else if (i > 0) break; // сегодня может ещё не быть — не рвём
     }
@@ -389,19 +435,23 @@
     // лента по дням
     const feed = document.getElementById('journal-feed');
     feed.innerHTML = '';
-    const days = [...new Set([...sessions.map(s => s.date), ...Object.keys(plans)])]
-      .sort().reverse().slice(0, 30);
+    const days = [...new Set([
+      ...allSessions().map(s => s.date),
+      ...Object.keys(plans),
+      ...(REMOTE.plan || []).map(p => p.date)
+    ])].sort().reverse().slice(0, 60);
     if (days.length === 0) {
       feed.innerHTML = '<p class="muted">Записей пока нет</p>';
       return;
     }
     days.forEach(day => {
-      const daySessions = sessions.filter(s => s.date === day);
+      const daySessions = allSessions().filter(s => s.date === day);
       const dayPlan = plans[day] || [];
       const fact = daySessions.reduce((a, s) => a + netMinutes(s), 0);
-      const planned = dayPlan.reduce((a, t) => a + (Number(t.est) || 0), 0);
+      const planned = dayPlan.reduce((a, t) => a + (Number(t.est) || 0), 0) +
+        remotePlanFor(day).reduce((a, p) => a + (Number(p.planned_minutes) || 0), 0);
       const solo = daySessions.reduce((a, s) => a + (Number(s.solo) || 0), 0);
-      if (!daySessions.length && !dayPlan.length) return;
+      if (!daySessions.length && !dayPlan.length && !remotePlanFor(day).length) return;
 
       const block = document.createElement('div');
       block.className = 'jr-block';
@@ -433,9 +483,10 @@
     for (let i = 13; i >= 0; i--) {
       const d = new Date(); d.setDate(d.getDate() - i);
       const key = todayKey(d);
-      const fact = sessions.filter(s => s.date === key)
+      const fact = allSessions().filter(s => s.date === key)
         .reduce((a, s) => a + netMinutes(s), 0);
-      const planned = (plans[key] || []).reduce((a, t) => a + (Number(t.est) || 0), 0);
+      const planned = (plans[key] || []).reduce((a, t) => a + (Number(t.est) || 0), 0) +
+        remotePlanFor(key).reduce((a, p) => a + (Number(p.planned_minutes) || 0), 0);
       days.push({ key, wd: WD[d.getDay()], fact, planned });
     }
     const max = Math.max(60, ...days.map(d => d.fact));
@@ -456,7 +507,7 @@
   function renderMastery() {
     const box = document.getElementById('trend-mastery');
     const keys = dayKeysBack(0, 14);
-    const learn = sessions.filter(s => keys.includes(s.date) && s.repeat7);
+    const learn = allSessions().filter(s => keys.includes(s.date) && s.repeat7);
     if (!learn.length) {
       box.innerHTML = '<p class="muted">Нет учебных записей с ответом «повторю через 7 дней?»</p>';
       return;
@@ -480,7 +531,7 @@
     box.innerHTML = '';
     const keys = dayKeysBack(0, 7);
     const byProj = {};
-    sessions.filter(s => keys.includes(s.date)).forEach(s => {
+    allSessions().filter(s => keys.includes(s.date)).forEach(s => {
       const p = s.project || '—';
       byProj[p] = (byProj[p] || 0) + netMinutes(s);
     });
@@ -658,6 +709,8 @@
   function init() {
     bindEvents();
     showScreen('today');
+    // записи наставника подтягиваются асинхронно — после загрузки перерисовать
+    loadRemote().then(() => showScreen(currentScreen));
   }
 
   if (document.readyState === 'loading') {
