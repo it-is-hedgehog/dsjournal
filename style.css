@@ -828,3 +828,118 @@ input[type="number"] {
   font-family: 'SF Mono', Menlo, monospace;
   font-size: 0.78rem;
 }
+
+/* ============================================================
+   v0.2: фиксы вёрстки + тенденции
+   ============================================================ */
+/* поля формы: не давать расползаться на узком экране */
+.jr-form input, .jr-form select, .jr-form textarea,
+.plan-add input {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.jr-form-row { flex-wrap: wrap; }
+.jr-form-row label { flex: 1 1 30%; min-width: 88px; }
+
+input[type="time"], input[type="number"] {
+  padding-left: 8px;
+  padding-right: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.plan-add { grid-template-columns: minmax(0, 1fr) 58px 44px; }
+.plan-add input[type="number"] { text-align: center; padding: 10px 4px; }
+
+/* журнал: 4 стат-бокса 2×2 */
+.stats-grid4 { grid-template-columns: repeat(2, 1fr); }
+
+.stat-delta {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  min-height: 0.9em;
+}
+.stat-delta.up { color: var(--rate-good); }
+.stat-delta.down { color: var(--rate-again); }
+
+/* график часов по дням */
+.tchart {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  min-height: 96px;
+}
+
+.tcol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tval { font-size: 0.55rem; color: var(--text-muted); height: 0.9em; }
+
+.tbar {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  background: var(--primary);
+}
+.tbar.good { background: var(--rate-good); }
+.tbar.under { background: var(--rate-hard); }
+.tbar.plain { background: var(--primary); opacity: 0.75; }
+.tbar.empty { background: var(--border); }
+
+.tday { font-size: 0.58rem; color: var(--text-muted); }
+
+.tchart-legend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.lg {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 3px;
+  margin-left: 6px;
+}
+.lg-good { background: var(--rate-good); }
+.lg-under { background: var(--rate-hard); }
+.lg-plain { background: var(--primary); opacity: 0.75; }
+
+/* усвоение */
+.mbar {
+  display: flex;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--border);
+  margin-bottom: 8px;
+}
+.m-yes { background: var(--rate-good); }
+.m-part { background: var(--rate-hard); }
+.m-no { background: var(--rate-again); }
+
+/* по проектам */
+.proj-row {
+  display: grid;
+  grid-template-columns: minmax(72px, auto) 1fr 70px;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.proj-name { font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.proj-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.proj-bar div { height: 100%; background: var(--primary); border-radius: 999px; }
+.proj-min { text-align: right; }

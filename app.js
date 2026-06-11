@@ -20,14 +20,33 @@
   let currentScreen = 'today';
   let timerTick = null;
 
-  // стартовые дедлайны — только подтверждённые планом даты
-  if (deadlines === null) {
-    deadlines = [
-      { id: uid(), title: 'DSB7 финиш (ex05 + повторы + peer-review)', date: '2026-06-16' },
-      { id: uid(), title: 'DSB8–12 финиш (вся программа)', date: '2026-07-26' }
-    ];
+  // стартовые дедлайны — версионируемый сид (новые версии доезжают
+  // до телефона, где localStorage уже заполнен)
+  const K_DLSEED = 'dsj_dlseed_v1';
+  const DL_SEEDS = [
+    { v: 1, key: 'DSB7', title: 'DSB7 финиш (ex05 + повторы + peer-review)', date: '2026-06-16' },
+    { v: 2, key: 'DSB8', title: 'DSB8 SQL — финиш', date: '2026-06-23' },
+    { v: 2, key: 'DSB9', title: 'DSB9 — финиш', date: '2026-06-30' },
+    { v: 2, key: 'DSB10', title: 'DSB10 ML — финиш', date: '2026-07-07' },
+    { v: 2, key: 'DSB11', title: 'DSB11 ML — финиш', date: '2026-07-13' },
+    { v: 2, key: 'DSB12', title: 'DSB12 Team-проект (Food&nutrition) — финиш', date: '2026-07-18' },
+    { v: 1, key: 'вся программа', title: 'Вся программа DSB — жёсткий дедлайн', date: '2026-07-26' }
+  ];
+  const DLSEED_CUR = 2;
+  (function migrateDeadlines() {
+    if (deadlines === null) deadlines = [];
+    const haveVer = Number(localStorage.getItem(K_DLSEED) || 0);
+    if (haveVer >= DLSEED_CUR) return;
+    DL_SEEDS.forEach(s => {
+      if (s.v <= haveVer) return; // эта версия уже сеялась
+      // ключ не должен быть частью другого ("DSB8" внутри "DSB8–12")
+      const re = new RegExp(s.key + '(?![\\d–-])');
+      if (deadlines.some(x => re.test(x.title))) return; // уже есть/правился вручную
+      deadlines.push({ id: uid(), title: s.title, date: s.date });
+    });
+    localStorage.setItem(K_DLSEED, String(DLSEED_CUR));
     save(K_DEADLINES, deadlines);
-  }
+  })();
 
   function load(key, def) {
     try {
@@ -296,19 +315,62 @@
   // ============================================================
   // ЖУРНАЛ: лента план vs факт
   // ============================================================
-  function renderJournal() {
-    // статистика за 7 дней
-    const week = [];
-    for (let i = 0; i < 7; i++) {
+  // дни: i дней назад → массив ключей [от..до)
+  function dayKeysBack(from, to) {
+    const keys = [];
+    for (let i = from; i < to; i++) {
       const d = new Date(); d.setDate(d.getDate() - i);
-      week.push(todayKey(d));
+      keys.push(todayKey(d));
     }
-    const weekSessions = sessions.filter(s => week.includes(s.date));
-    const weekMin = weekSessions.reduce((a, s) => a + netMinutes(s), 0);
-    const weekSolo = weekSessions.reduce((a, s) => a + (Number(s.solo) || 0), 0);
-    document.getElementById('jstat-week').textContent = (weekMin / 60).toFixed(1);
-    document.getElementById('jstat-solo').textContent =
-      (weekMin ? Math.round(weekSolo / weekMin * 100) : 0) + '%';
+    return keys;
+  }
+
+  function rangeStats(dayKeys) {
+    const ss = sessions.filter(s => dayKeys.includes(s.date));
+    const fact = ss.reduce((a, s) => a + netMinutes(s), 0);
+    const solo = ss.reduce((a, s) => a + (Number(s.solo) || 0), 0);
+    let planned = 0;
+    dayKeys.forEach(k => {
+      planned += (plans[k] || []).reduce((a, t) => a + (Number(t.est) || 0), 0);
+    });
+    return { fact, solo, planned, sessions: ss };
+  }
+
+  // дельта к прошлому периоду: "↑ +1.2" / "↓ −15%"
+  function deltaText(cur, prev, suffix) {
+    if (prev === 0 && cur === 0) return '';
+    const d = cur - prev;
+    if (Math.abs(d) < 0.05) return '= как раньше';
+    const arrow = d > 0 ? '↑' : '↓';
+    const sign = d > 0 ? '+' : '−';
+    return `${arrow} ${sign}${Math.abs(d).toFixed(suffix === '%' ? 0 : 1)}${suffix} к пред. неделе`;
+  }
+
+  function setDelta(id, cur, prev, suffix) {
+    const el = document.getElementById(id);
+    el.textContent = deltaText(cur, prev, suffix);
+    el.className = 'stat-delta ' + (cur > prev ? 'up' : cur < prev ? 'down' : '');
+  }
+
+  function renderJournal() {
+    // эта неделя vs прошлая
+    const thisW = rangeStats(dayKeysBack(0, 7));
+    const prevW = rangeStats(dayKeysBack(7, 14));
+
+    const hoursCur = thisW.fact / 60, hoursPrev = prevW.fact / 60;
+    document.getElementById('jstat-week').textContent = hoursCur.toFixed(1);
+    setDelta('jdelta-week', hoursCur, hoursPrev, ' ч');
+
+    const soloCur = thisW.fact ? Math.round(thisW.solo / thisW.fact * 100) : 0;
+    const soloPrev = prevW.fact ? Math.round(prevW.solo / prevW.fact * 100) : 0;
+    document.getElementById('jstat-solo').textContent = soloCur + '%';
+    setDelta('jdelta-solo', soloCur, soloPrev, '%');
+
+    const planCur = thisW.planned ? Math.round(thisW.fact / thisW.planned * 100) : null;
+    const planPrev = prevW.planned ? Math.round(prevW.fact / prevW.planned * 100) : null;
+    document.getElementById('jstat-plan').textContent = planCur === null ? '—' : planCur + '%';
+    if (planCur !== null && planPrev !== null) setDelta('jdelta-plan', planCur, planPrev, '%');
+    else document.getElementById('jdelta-plan').textContent = '';
 
     // streak: дни подряд с сессиями (начиная с сегодня или вчера)
     let streak = 0;
@@ -319,6 +381,10 @@
       else if (i > 0) break; // сегодня может ещё не быть — не рвём
     }
     document.getElementById('jstat-streak').textContent = streak;
+
+    renderTrendChart();
+    renderMastery();
+    renderProjects();
 
     // лента по дням
     const feed = document.getElementById('journal-feed');
@@ -352,6 +418,86 @@
         `<span class="muted-sm">самост. ${fact ? Math.round(solo / fact * 100) : 0}%</span></div>` + bar;
       daySessions.forEach(s => block.appendChild(sessionCard(s)));
       feed.appendChild(block);
+    });
+  }
+
+  // ============================================================
+  // ТЕНДЕНЦИИ
+  // ============================================================
+  const WD = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+
+  function renderTrendChart() {
+    const box = document.getElementById('trend-chart');
+    box.innerHTML = '';
+    const days = [];
+    for (let i = 13; i >= 0; i--) {
+      const d = new Date(); d.setDate(d.getDate() - i);
+      const key = todayKey(d);
+      const fact = sessions.filter(s => s.date === key)
+        .reduce((a, s) => a + netMinutes(s), 0);
+      const planned = (plans[key] || []).reduce((a, t) => a + (Number(t.est) || 0), 0);
+      days.push({ key, wd: WD[d.getDay()], fact, planned });
+    }
+    const max = Math.max(60, ...days.map(d => d.fact));
+    days.forEach(d => {
+      const col = document.createElement('div');
+      col.className = 'tcol';
+      const h = d.fact ? Math.max(4, Math.round(d.fact / max * 64)) : 2;
+      const cls = !d.fact ? 'empty' : !d.planned ? 'plain'
+        : d.fact >= d.planned ? 'good' : 'under';
+      col.innerHTML =
+        `<div class="tval">${d.fact ? (d.fact / 60).toFixed(1) : ''}</div>` +
+        `<div class="tbar ${cls}" style="height:${h}px"></div>` +
+        `<div class="tday">${d.wd}</div>`;
+      box.appendChild(col);
+    });
+  }
+
+  function renderMastery() {
+    const box = document.getElementById('trend-mastery');
+    const keys = dayKeysBack(0, 14);
+    const learn = sessions.filter(s => keys.includes(s.date) && s.repeat7);
+    if (!learn.length) {
+      box.innerHTML = '<p class="muted">Нет учебных записей с ответом «повторю через 7 дней?»</p>';
+      return;
+    }
+    const n = { 'да': 0, 'частично': 0, 'нет': 0 };
+    learn.forEach(s => { if (n[s.repeat7] !== undefined) n[s.repeat7]++; });
+    const total = learn.length;
+    const pct = k => Math.round(n[k] / total * 100);
+    box.innerHTML =
+      `<div class="mbar">` +
+      `<div class="m-yes" style="width:${pct('да')}%"></div>` +
+      `<div class="m-part" style="width:${pct('частично')}%"></div>` +
+      `<div class="m-no" style="width:${pct('нет')}%"></div>` +
+      `</div>` +
+      `<div class="muted-sm">да ${n['да']} · частично ${n['частично']} · нет ${n['нет']}` +
+      ` — цель: «да» растёт, «нет» уходит в повторы</div>`;
+  }
+
+  function renderProjects() {
+    const box = document.getElementById('trend-projects');
+    box.innerHTML = '';
+    const keys = dayKeysBack(0, 7);
+    const byProj = {};
+    sessions.filter(s => keys.includes(s.date)).forEach(s => {
+      const p = s.project || '—';
+      byProj[p] = (byProj[p] || 0) + netMinutes(s);
+    });
+    const rows = Object.entries(byProj).sort((a, b) => b[1] - a[1]).slice(0, 6);
+    if (!rows.length) {
+      box.innerHTML = '<p class="muted">Записей за неделю нет</p>';
+      return;
+    }
+    const max = rows[0][1];
+    rows.forEach(([name, mins]) => {
+      const row = document.createElement('div');
+      row.className = 'proj-row';
+      row.innerHTML =
+        `<div class="proj-name">${escapeHtml(name)}</div>` +
+        `<div class="proj-bar"><div style="width:${Math.round(mins / max * 100)}%"></div></div>` +
+        `<div class="proj-min muted-sm">${fmtMin(mins)}</div>`;
+      box.appendChild(row);
     });
   }
 

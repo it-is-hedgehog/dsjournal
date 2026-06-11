@@ -103,12 +103,30 @@
     </div>
   </section>
 
-  <!-- ЖУРНАЛ: лента план vs факт -->
+  <!-- ЖУРНАЛ: тенденции + лента план vs факт -->
   <section id="journal" class="screen" hidden>
-    <div class="stats-row">
-      <div class="stat-box"><div class="stat-num" id="jstat-week">0</div><div class="stat-label">часов за 7 дней</div></div>
-      <div class="stat-box"><div class="stat-num" id="jstat-solo">0%</div><div class="stat-label">самост. за 7 дней</div></div>
-      <div class="stat-box"><div class="stat-num" id="jstat-streak">0</div><div class="stat-label">дней подряд</div></div>
+    <div class="stats-row stats-grid4">
+      <div class="stat-box"><div class="stat-num" id="jstat-week">0</div><div class="stat-label">часов за 7 дней</div><div class="stat-delta" id="jdelta-week"></div></div>
+      <div class="stat-box"><div class="stat-num" id="jstat-solo">0%</div><div class="stat-label">самост. за 7 дней</div><div class="stat-delta" id="jdelta-solo"></div></div>
+      <div class="stat-box"><div class="stat-num" id="jstat-plan">—</div><div class="stat-label">план выполнен</div><div class="stat-delta" id="jdelta-plan"></div></div>
+      <div class="stat-box"><div class="stat-num" id="jstat-streak">0</div><div class="stat-label">дней подряд</div><div class="stat-delta"></div></div>
+    </div>
+    <div class="jr-block">
+      <div class="jr-block-head"><h2>Часы по дням</h2><span class="muted-sm">14 дней</span></div>
+      <div id="trend-chart" class="tchart"></div>
+      <div class="tchart-legend muted-sm">
+        <span class="lg lg-good"></span>план выполнен
+        <span class="lg lg-under"></span>меньше плана
+        <span class="lg lg-plain"></span>без плана
+      </div>
+    </div>
+    <div class="jr-block">
+      <div class="jr-block-head"><h2>Усвоение</h2><span class="muted-sm">«повторю через 7 дней?» · 14 дней</span></div>
+      <div id="trend-mastery"></div>
+    </div>
+    <div class="jr-block">
+      <div class="jr-block-head"><h2>По проектам</h2><span class="muted-sm">7 дней</span></div>
+      <div id="trend-projects"></div>
     </div>
     <div id="journal-feed"></div>
   </section>
@@ -142,7 +160,7 @@
     </div>
     <div class="jr-block">
       <h2>Версия</h2>
-      <p class="muted" id="version-text">v0.1 — 11.06.2026 (MVP: план/факт, таймер, дедлайны, экспорт)</p>
+      <p class="muted" id="version-text">v0.2 — 11.06.2026 (дедлайны DSB8-12, тенденции в журнале, фикс вёрстки полей)</p>
     </div>
   </section>
 
