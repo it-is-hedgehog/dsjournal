@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-11T17:18:41+03:00",
+ "updated": "2026-06-11T21:36:32+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -488,6 +488,24 @@
    "can_repeat_7d": null,
    "notes": "Полностью самостоятельно (100%). Паузы: обед + параллельная работа с наставником над приложениями.",
    "status": "completed"
+  },
+  {
+   "id": "20260611-2046",
+   "date": "2026-06-11",
+   "start": "20:46",
+   "end": "21:30",
+   "project": "DSB7 повтор ex01",
+   "task": "Retrieval-сессия: подзадачи 1-3 воспроизведены с нуля по памяти (read_csv+names+sep, to_datetime, .dt×5, pd.cut 6 категорий с bins=-1, set_index, count/value_counts). Подзадачи 5-7 — перенос на утро.",
+   "minutes_total": 44,
+   "minutes_paused": 0,
+   "minutes_with_ai": 19,
+   "minutes_solo": 25,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 2,
+   "can_repeat_7d": null,
+   "notes": "СТОП по правилу «мозг не варит» (v2.0) — студент сам остановил. Ключевое решение: переход на утренний график (вечером усвоение слабое — подтверждено аудитом 10.06). Оценки не собирались — усталость. 57% самостоятельности за сессию.",
+   "status": "incomplete"
   }
  ],
  "plan": [
@@ -500,8 +518,8 @@
   },
   {
    "date": "2026-06-12",
-   "task": "DSB7 ex05 optimizations",
-   "planned_minutes": 150,
+   "task": "УТРО: ex01 вторая итерация (подзадачи 5-7, ~30 мин) + DSB7 ex05 optimizations",
+   "planned_minutes": 180,
    "actual_minutes": null,
    "status": "planned"
   },
