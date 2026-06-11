@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DS Journal">
+  <meta name="theme-color" content="#2d5a8e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1f2e" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <title>DS Journal — план/факт</title>
+</head>
+<body>
+
+<header id="topbar">
+  <h1 id="screen-title">Сегодня</h1>
+  <span id="timer-badge" class="timer-badge" hidden>⏱ 0:00</span>
+</header>
+
+<main id="app">
+
+  <!-- СЕГОДНЯ: план + таймер + сессии дня -->
+  <section id="today" class="screen">
+    <div class="jr-block">
+      <div class="jr-block-head">
+        <h2>План на сегодня</h2>
+        <span id="plan-summary" class="muted-sm"></span>
+      </div>
+      <ul id="plan-list" class="plan-list"></ul>
+      <div class="plan-add">
+        <input type="text" id="plan-text" placeholder="Задача (напр. ex05 подзадачи 1-3)">
+        <input type="number" id="plan-est" placeholder="мин" min="5" max="480">
+        <button id="btn-plan-add" class="btn-mini">＋</button>
+      </div>
+    </div>
+
+    <div class="jr-block">
+      <div class="jr-block-head">
+        <h2>Сессия</h2>
+        <span id="timer-state" class="muted-sm">не запущена</span>
+      </div>
+      <div class="timer-row">
+        <button id="btn-timer-start" class="btn-primary">▶ Старт</button>
+        <button id="btn-timer-pause" class="btn-secondary" hidden>⏸ Пауза</button>
+        <button id="btn-timer-stop" class="btn-danger" hidden>⏹ Стоп</button>
+      </div>
+    </div>
+
+    <div class="jr-block">
+      <div class="jr-block-head">
+        <h2>Сделано сегодня</h2>
+        <span id="today-total" class="muted-sm"></span>
+      </div>
+      <div id="today-sessions"></div>
+      <button id="btn-session-manual" class="btn-secondary">＋ Записать сессию вручную</button>
+    </div>
+  </section>
+
+  <!-- ФОРМА СЕССИИ -->
+  <section id="session-form" class="screen" hidden>
+    <h2 id="sf-title">Запись сессии</h2>
+    <div class="jr-form">
+      <label>Проект / задание
+        <input type="text" id="sf-project" placeholder="DSB7 ex05" list="sf-project-options">
+        <datalist id="sf-project-options"></datalist>
+      </label>
+      <div class="jr-form-row">
+        <label>Старт <input type="time" id="sf-start"></label>
+        <label>Конец <input type="time" id="sf-end"></label>
+        <label>Паузы, мин <input type="number" id="sf-pauses" value="0" min="0"></label>
+      </div>
+      <label>Из них самостоятельно, мин (без ИИ)
+        <input type="number" id="sf-solo" value="0" min="0">
+      </label>
+      <label>Что сделано
+        <textarea id="sf-done" rows="3" placeholder="ex05: подзадачи 1-3, замеры iterrows vs apply"></textarea>
+      </label>
+      <div class="jr-form-row">
+        <label>Сложность — я <select id="sf-diff-s">
+          <option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        </select></label>
+        <label>— наставник <select id="sf-diff-m">
+          <option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+        </select></label>
+      </div>
+      <label>Повторю через 7 дней?
+        <select id="sf-repeat7">
+          <option value="">— (не учебная)</option>
+          <option value="да">да</option>
+          <option value="частично">частично</option>
+          <option value="нет">нет</option>
+        </select>
+      </label>
+      <label>Заметки (где буксовал)
+        <textarea id="sf-notes" rows="2"></textarea>
+      </label>
+      <button id="btn-session-save" class="btn-primary">Сохранить</button>
+      <button id="btn-session-cancel" class="btn-secondary">Отмена</button>
+      <button id="btn-session-delete" class="btn-danger" hidden>Удалить запись</button>
+    </div>
+  </section>
+
+  <!-- ЖУРНАЛ: лента план vs факт -->
+  <section id="journal" class="screen" hidden>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-num" id="jstat-week">0</div><div class="stat-label">часов за 7 дней</div></div>
+      <div class="stat-box"><div class="stat-num" id="jstat-solo">0%</div><div class="stat-label">самост. за 7 дней</div></div>
+      <div class="stat-box"><div class="stat-num" id="jstat-streak">0</div><div class="stat-label">дней подряд</div></div>
+    </div>
+    <div id="journal-feed"></div>
+  </section>
+
+  <!-- ДЕДЛАЙНЫ -->
+  <section id="deadlines" class="screen" hidden>
+    <div id="deadline-list"></div>
+    <div class="jr-block">
+      <h2>Добавить дедлайн</h2>
+      <div class="jr-form">
+        <label>Что <input type="text" id="dl-title" placeholder="DSB8 SQL — финиш"></label>
+        <label>Дата <input type="date" id="dl-date"></label>
+        <button id="btn-dl-add" class="btn-secondary">Добавить</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЕЩЁ: экспорт / импорт -->
+  <section id="more" class="screen" hidden>
+    <div class="jr-block">
+      <h2>Экспорт в time_tracking.md</h2>
+      <p class="muted">Запись сегодняшнего дня в формате журнала — скопируй и вставь в файл.</p>
+      <button id="btn-export-md" class="btn-primary">Скопировать markdown за сегодня</button>
+      <textarea id="export-md-out" rows="8" readonly placeholder="Здесь появится markdown"></textarea>
+    </div>
+    <div class="jr-block">
+      <h2>Резервная копия</h2>
+      <button id="btn-export-json" class="btn-secondary">Экспорт всех данных (JSON)</button>
+      <button id="btn-import-json" class="btn-secondary">Импорт данных</button>
+      <input type="file" id="import-file" accept=".json" hidden>
+    </div>
+    <div class="jr-block">
+      <h2>Версия</h2>
+      <p class="muted" id="version-text">v0.1 — 11.06.2026 (MVP: план/факт, таймер, дедлайны, экспорт)</p>
+    </div>
+  </section>
+
+</main>
+
+<nav id="tabbar">
+  <button class="tab active" data-screen="today">📋<span>Сегодня</span></button>
+  <button class="tab" data-screen="journal">📈<span>Журнал</span></button>
+  <button class="tab" data-screen="deadlines">🎯<span>Дедлайны</span></button>
+  <button class="tab" data-screen="more">⚙️<span>Ещё</span></button>
+</nav>
+
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "DS Journal — план/факт",
+  "short_name": "DS Journal",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1a1f2e",
+  "theme_color": "#2d5a8e",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
