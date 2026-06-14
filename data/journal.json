@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-11T21:36:32+03:00",
+ "updated": "2026-06-14T18:25:59+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -506,6 +506,24 @@
    "can_repeat_7d": null,
    "notes": "СТОП по правилу «мозг не варит» (v2.0) — студент сам остановил. Ключевое решение: переход на утренний график (вечером усвоение слабое — подтверждено аудитом 10.06). Оценки не собирались — усталость. 57% самостоятельности за сессию.",
    "status": "incomplete"
+  },
+  {
+   "id": "20260614-1118",
+   "date": "2026-06-14",
+   "start": "11:18",
+   "end": "18:22",
+   "project": "DSB7 ex05",
+   "task": "Оптимизации Pandas: %%timeit, 5 способов перебора (лестница скорости от 67мс до 65μs, ×1000), поиск по индексу vs значению, downcasting (int8/int16/float32), object→category (память 214→100 KB), gc.collect()+reset_selective. ВЕСЬ DSB7 ЗАКРЫТ.",
+   "minutes_total": 178,
+   "minutes_paused": 246,
+   "minutes_with_ai": 138,
+   "minutes_solo": 40,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 3,
+   "can_repeat_7d": "partial",
+   "notes": "Концепты усвоены отлично (4 маркера своими словами: векторизация+минимум обёртки, RAM vs диск, стол/полка, downcasting=коробка под груз). Синтаксис буксовал: цикл, %%timeit-гоча (UnboundLocalError при присваивании внутри), float16 overflow→inf на Cal, category-на-всё вместо строк. Все баги разобрал и починил САМ. Первая боевая сессия по утреннему графику с длинными паузами. Студент: «день хорошо прошёл».",
+   "status": "completed"
   }
  ],
  "plan": [
@@ -517,23 +535,9 @@
    "status": "planned"
   },
   {
-   "date": "2026-06-12",
-   "task": "УТРО: ex01 вторая итерация (подзадачи 5-7, ~30 мин) + DSB7 ex05 optimizations",
-   "planned_minutes": 180,
-   "actual_minutes": null,
-   "status": "planned"
-  },
-  {
-   "date": "2026-06-13",
-   "task": "Повторы ex02-ex04 с нуля + peer-prep",
-   "planned_minutes": 150,
-   "actual_minutes": null,
-   "status": "planned"
-  },
-  {
    "date": "2026-06-15",
-   "task": "DSB7 peer-review",
-   "planned_minutes": 120,
+   "task": "УТРО: причесать файлы ex00-05 + пройтись по checklist-листам, потом peer-review (сдать 1 пиру, накопить ещё пир, сдать второй раз) → DSB7 полностью закрыт",
+   "planned_minutes": 180,
    "actual_minutes": null,
    "status": "planned"
   }
