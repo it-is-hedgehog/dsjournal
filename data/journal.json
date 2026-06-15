@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-14T18:25:59+03:00",
+ "updated": "2026-06-15T12:48:14+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -523,6 +523,24 @@
    "mentor_complexity": 3,
    "can_repeat_7d": "partial",
    "notes": "Концепты усвоены отлично (4 маркера своими словами: векторизация+минимум обёртки, RAM vs диск, стол/полка, downcasting=коробка под груз). Синтаксис буксовал: цикл, %%timeit-гоча (UnboundLocalError при присваивании внутри), float16 overflow→inf на Cal, category-на-всё вместо строк. Все баги разобрал и починил САМ. Первая боевая сессия по утреннему графику с длинными паузами. Студент: «день хорошо прошёл».",
+   "status": "completed"
+  },
+  {
+   "id": "20260615-1115",
+   "date": "2026-06-15",
+   "start": "11:15",
+   "end": "12:46",
+   "project": "Книга Мэтиз",
+   "task": "Глава 7: циклы while со списками — удаление всех вхождений значения (remove в while), pop, перенос элементов между списками (sandwich/deli упражнения)",
+   "minutes_total": 76,
+   "minutes_paused": 15,
+   "minutes_with_ai": 0,
+   "minutes_solo": 76,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Самостоятельно по книге, 100%. Утренний график. Вопрос по pop разобрали после.",
    "status": "completed"
   }
  ],
