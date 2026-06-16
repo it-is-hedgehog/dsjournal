@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-15T12:48:14+03:00",
+ "updated": "2026-06-16T22:37:03+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -542,6 +542,24 @@
    "can_repeat_7d": null,
    "notes": "Самостоятельно по книге, 100%. Утренний график. Вопрос по pop разобрали после.",
    "status": "completed"
+  },
+  {
+   "id": "20260616-1843",
+   "date": "2026-06-16",
+   "start": "18:43",
+   "end": "22:35",
+   "project": "DSB7 peer-review prep",
+   "task": "OCR чек-листа DSB7 (PyMuPDF). Глубокий разбор ex01/ex03/ex04/ex05 против чек-листа: idxmax vs max, mask, agg vs count, owners (sample vs full — конфликт текст↔чек-лист), merge-чувствительность, CarNumber индекс vs category. Фиксы по ходу.",
+   "minutes_total": 192,
+   "minutes_paused": 40,
+   "minutes_with_ai": 130,
+   "minutes_solo": 62,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 3,
+   "can_repeat_7d": null,
+   "notes": "Подготовка к peer-review, не учёба. Пауза на ужин ~40 мин (оценка). Студент сам редактировал ноутбуки (фиксы df/fines, float-формат, финальная ячейка). Хорошее критическое мышление: настоял искать косяк — нашли реальные (df.csv vs fines.csv, CarNumber индекс). Вскрыты 2 рассинхрона текст задания↔чек-лист (owners sample/full, CarNumber).",
+   "status": "completed"
   }
  ],
  "plan": [
@@ -555,6 +573,13 @@
   {
    "date": "2026-06-15",
    "task": "УТРО: причесать файлы ex00-05 + пройтись по checklist-листам, потом peer-review (сдать 1 пиру, накопить ещё пир, сдать второй раз) → DSB7 полностью закрыт",
+   "planned_minutes": 180,
+   "actual_minutes": null,
+   "status": "planned"
+  },
+  {
+   "date": "2026-06-17",
+   "task": "УТРО: финальные фиксы (ex04 [26] fines.csv, ex03 загрузка+isin) → push → сделать шпору (ответы на вопросы пира) → peer-review DSB7",
    "planned_minutes": 180,
    "actual_minutes": null,
    "status": "planned"
