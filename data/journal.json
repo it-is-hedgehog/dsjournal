@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-16T22:37:03+03:00",
+ "updated": "2026-06-17T18:01:47+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -560,6 +560,24 @@
    "can_repeat_7d": null,
    "notes": "Подготовка к peer-review, не учёба. Пауза на ужин ~40 мин (оценка). Студент сам редактировал ноутбуки (фиксы df/fines, float-формат, финальная ячейка). Хорошее критическое мышление: настоял искать косяк — нашли реальные (df.csv vs fines.csv, CarNumber индекс). Вскрыты 2 рассинхрона текст задания↔чек-лист (owners sample/full, CarNumber).",
    "status": "completed"
+  },
+  {
+   "id": "20260617-1544",
+   "date": "2026-06-17",
+   "start": "15:44",
+   "end": "17:59",
+   "project": "DSB7 peer-review #1 + Mac setup",
+   "task": "Шпора DSB7 (HTML, чек-лист+вопросы). Настройка Мака: venv_mac (pandas 2.3.3, ядро «DSB7 Mac»), SSH-ключ GitLab (git-ssh.21-school.ru:2222), .gitignore, push в develop. ПРОЙДЕНА проверка #1: ex00-03 по 5/5, ex04 4/5 (опечатка задания — пир признал), ex05 4/5 (CarNumber не category).",
+   "minutes_total": 135,
+   "minutes_paused": 0,
+   "minutes_with_ai": 110,
+   "minutes_solo": 25,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 2,
+   "can_repeat_7d": null,
+   "notes": "Первая peer-проверка DSB7 пройдена, 28/30 баллов. Оба минуса — ровно то, что предсказали в разборе 16.06 (ex04 = баг задания, ex05 = CarNumber-индекс vs category). Пир предупредил: дальше в блоках больше опечаток в заданиях. Нужна 2-я проверка для закрытия DSB7. Перед ней — фикс ex05 (reset_index + CarNumber astype category) и re-push.",
+   "status": "completed"
   }
  ],
  "plan": [
@@ -578,9 +596,9 @@
    "status": "planned"
   },
   {
-   "date": "2026-06-17",
-   "task": "УТРО: финальные фиксы (ex04 [26] fines.csv, ex03 загрузка+isin) → push → сделать шпору (ответы на вопросы пира) → peer-review DSB7",
-   "planned_minutes": 180,
+   "date": "2026-06-18",
+   "task": "2-я peer-проверка DSB7 (без правок — сдаём как есть) → закрыть блок → старт DSB8 SQL",
+   "planned_minutes": 120,
    "actual_minutes": null,
    "status": "planned"
   }
