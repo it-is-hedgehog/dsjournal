@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-18T14:00:00+03:00",
+ "updated": "2026-06-18T19:50:00+03:00",
  "entries": [
   {
    "id": "20260618-1032",
@@ -37,6 +37,24 @@
    "mentor_complexity": null,
    "can_repeat_7d": null,
    "notes": "≈30 мин принимали его + ≈30 мин он проверял чужой код (точное время по часам не фиксировалось). DSB7 ПОЛНОСТЬЮ ЗАКРЫТ. Роль проверяющего = практика объяснябельности, которой переживал что не хватает.",
+   "status": "completed"
+  },
+  {
+   "id": "20260618-1842",
+   "date": "2026-06-18",
+   "start": "18:42",
+   "end": "19:50",
+   "project": "Книга «Pandas в действии» (Б. Пасхавер)",
+   "task": "Глава 1 — знакомство с библиотекой pandas (теория)",
+   "minutes_total": 68,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 68,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Вечернее чтение, 100% сам. Закрепление DSB7 на другом материале (удержание паттернов).",
    "status": "completed"
   },
   {
