@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-18T19:50:00+03:00",
+ "updated": "2026-06-18T20:30:00+03:00",
  "entries": [
   {
    "id": "20260618-1032",
@@ -55,6 +55,24 @@
    "mentor_complexity": null,
    "can_repeat_7d": null,
    "notes": "Вечернее чтение, 100% сам. Закрепление DSB7 на другом материале (удержание паттернов).",
+   "status": "completed"
+  },
+  {
+   "id": "20260618-pr3",
+   "date": "2026-06-18",
+   "start": null,
+   "end": null,
+   "project": "DSB7 ревью (проверяющий)",
+   "task": "Проверял ещё одного студента по DSB7 как пир (≈30 мин)",
+   "minutes_total": 30,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 30,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Студент зафейлил ex04: суммы merge ~160 вместо ~930 (вероятно inner-join по несовпадающим ключам режет строки). Тимос распознал расхождение — это та самая объяснябельность, которой переживал что нет. Уже второй проверенный за день.",
    "status": "completed"
   },
   {
