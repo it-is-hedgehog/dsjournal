@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-17T18:01:47+03:00",
+ "updated": "2026-06-18T12:37:00+03:00",
  "entries": [
+  {
+   "id": "20260618-1032",
+   "date": "2026-06-18",
+   "start": "10:32",
+   "end": "12:37",
+   "project": "Книга Мэтиз",
+   "task": "Глава 8 (функции): передача аргументов — позиционные, именованные, значения по умолчанию (display_message, make_shirt, discrabe_sity)",
+   "minutes_total": 65,
+   "minutes_paused": 60,
+   "minutes_with_ai": 0,
+   "minutes_solo": 65,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Самостоятельно по книге, 100%. Утренний график. Из 125 мин «от-до» вычтен 1 ч на домашние дела → 65 мин чистого времени.",
+   "status": "completed"
+  },
   {
    "id": "20260518-2117",
    "date": "2026-05-18",
