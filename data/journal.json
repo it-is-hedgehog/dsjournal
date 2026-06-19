@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-19T11:52:00+03:00",
+ "updated": "2026-06-19T14:38:00+03:00",
  "entries": [
+  {
+   "id": "20260619-1438",
+   "date": "2026-06-19",
+   "start": "14:38",
+   "end": null,
+   "project": "Книга «Pandas в действии» (Б. Пасхавер)",
+   "task": "Самостоятельное чтение/изучение Pandas по книге Бориса Пасхавера",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260619-0943",
    "date": "2026-06-19",
