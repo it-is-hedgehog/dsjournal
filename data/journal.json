@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-18T20:30:00+03:00",
+ "updated": "2026-06-19T11:52:00+03:00",
  "entries": [
+  {
+   "id": "20260619-0943",
+   "date": "2026-06-19",
+   "start": "09:43",
+   "end": "11:52",
+   "project": "Книга Мэтиз",
+   "task": "Глава 8 (функции): возврат значений (return), make_album + цикл while со sentinel 'q', обработка обоих путей выхода",
+   "minutes_total": 99,
+   "minutes_paused": 30,
+   "minutes_with_ai": 25,
+   "minutes_solo": 74,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Утренний график. Из 129 мин «от-до» вычтено 30 мин (еда/отдых) → 99 чистого. Хороший момент обучения: сам методом тыка переставил make_album внутрь цикла, потом своими словами объяснил почему break не даёт 'q' попасть в last_name (Фейнман ✅). По наводке закрыл обе ветки break (NameError на первой итерации) — Zen «ошибки не замалчиваются».",
+   "status": "completed"
+  },
   {
    "id": "20260618-1032",
    "date": "2026-06-18",
