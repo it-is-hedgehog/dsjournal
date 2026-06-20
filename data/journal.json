@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-19T23:28:00+03:00",
+ "updated": "2026-06-20T15:06:00+03:00",
  "entries": [
+  {
+   "id": "20260620-1506",
+   "date": "2026-06-20",
+   "start": "15:06",
+   "end": null,
+   "project": "Книга Мэтиз «Изучаем Python»",
+   "task": "Самостоятельное обучение по книге (продолжение, сессия solo без наставника)",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Старт. Студент работает по книге самостоятельно — наставник не привлечён. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260619-2107",
    "date": "2026-06-19",
