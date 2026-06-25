@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-25T13:48:00+07:00",
+ "updated": "2026-06-25T20:10:00+07:00",
  "entries": [
+  {
+   "id": "20260625-2010",
+   "date": "2026-06-25",
+   "start": "20:10",
+   "end": null,
+   "project": "DSB8 (самостоятельно)",
+   "task": "Самостоятельная работа по DSB8 (завершение ex03 / старт ex04)",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету. Пробует сам, к наставнику — если застрянет. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260625-1115",
    "date": "2026-06-25",
