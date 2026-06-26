@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-25T22:10:00+07:00",
+ "updated": "2026-06-26T13:23:00+07:00",
  "entries": [
+  {
+   "id": "20260626-1323",
+   "date": "2026-06-26",
+   "start": "13:23",
+   "end": null,
+   "project": "DSB8 (правка + комментарии)",
+   "task": "Самостоятельно: проверка заданий, правка знака дельты, простановка комментариев перед сдачей",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету. Самостоятельно. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260625-2010",
    "date": "2026-06-25",
