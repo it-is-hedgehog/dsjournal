@@ -1,25 +1,25 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-26T13:23:00+07:00",
+ "updated": "2026-06-26T15:15:00+07:00",
  "entries": [
   {
    "id": "20260626-1323",
    "date": "2026-06-26",
    "start": "13:23",
-   "end": null,
-   "project": "DSB8 (правка + комментарии)",
-   "task": "Самостоятельно: проверка заданий, правка знака дельты, простановка комментариев перед сдачей",
-   "minutes_total": null,
+   "end": "15:15",
+   "project": "DSB8 правка + сдача",
+   "task": "Правка знака дельты в 6 ячейках, комментарии, глубокий разбор конструкций перед сдачей: CASE WHEN, фильтр HAVING MIN/MAX(1/0) «и до и после», to_sql/if_exists, PRAGMA vs SELECT, corr() матрица vs скаляр (numeric_only). Финальная сверка с чек-листом + push в GitLab develop.",
+   "minutes_total": 112,
    "minutes_paused": 0,
-   "minutes_with_ai": 0,
-   "minutes_solo": null,
-   "source": "manual",
+   "minutes_with_ai": 112,
+   "minutes_solo": 0,
+   "source": "claude",
    "self_complexity": null,
-   "mentor_complexity": null,
+   "mentor_complexity": 3,
    "can_repeat_7d": null,
-   "notes": "Время по Пхукету. Самостоятельно. Продолжение следует.",
-   "status": "incomplete"
+   "notes": "Время по Пхукету. DSB8 запушен в GitLab develop (296КБ, venv исключены, ex01 переименован в ex01_subquery.ipynb). Сверка: cnt 985✅, test 59✅, df_min user_30 −202✅, df_max user_25 −2✅. Методист-вариация (datamart 140 vs 146, corr −0.28 vs −0.06, str vs object pandas 3.0) — как в DSB7, объяснять логику. РОСТ: студент сам нашёл слабость метода A/B (1 наблюдение «до» против 100 «после» проходит фильтр MIN/MAX) — критическое мышление DS-уровня. Просил визуальный трейс подзапроса (как pythontutor) — разобрали мешками фишек по стадиям. Идёт на peer-review чуть позже.",
+   "status": "completed"
   },
   {
    "id": "20260625-2010",
