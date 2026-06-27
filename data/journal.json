@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-27T13:47:00+07:00",
+ "updated": "2026-06-27T20:09:00+07:00",
  "entries": [
+  {
+   "id": "20260627-2009",
+   "date": "2026-06-27",
+   "start": "20:09",
+   "end": null,
+   "project": "DSB9 ex01 (line chart styles)",
+   "task": "Самостоятельное знакомство с заданием ex01 (два графика на одном + стили)",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету. Самостоятельно знакомится с заданием. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260627-1228",
    "date": "2026-06-27",
