@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-26T15:15:00+07:00",
+ "updated": "2026-06-26T17:00:00+07:00",
  "entries": [
+  {
+   "id": "20260626-pr",
+   "date": "2026-06-26",
+   "start": null,
+   "end": null,
+   "project": "DSB8 peer-review (СДАН)",
+   "task": "2 peer-проверки DSB8 пройдены на 100%, не более 10 мин на каждую. DSB8 ПОЛНОСТЬЮ ЗАКРЫТ.",
+   "minutes_total": 20,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 20,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету, оценка ~10 мин × 2. Обе на 100% (vs DSB7 28/30). ВЕХА: быстрые проверки = объяснял уверенно — прямой контраст с тревогой 17.06 «половину не могу пояснить пиру». Retrieval-first + разбор по полочкам сработали. Второй DS-блок в зачёте.",
+   "status": "completed"
+  },
   {
    "id": "20260626-1323",
    "date": "2026-06-26",
