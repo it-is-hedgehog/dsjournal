@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-26T17:00:00+07:00",
+ "updated": "2026-06-27T12:28:00+07:00",
  "entries": [
+  {
+   "id": "20260627-1228",
+   "date": "2026-06-27",
+   "start": "12:28",
+   "end": null,
+   "project": "Учёба (самостоятельно)",
+   "task": "Самостоятельный разбор, накидывает инфу наставнику для продолжения учёбы",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету. Самостоятельно. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260626-pr",
    "date": "2026-06-26",
