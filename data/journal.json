@@ -1,25 +1,25 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-27T12:28:00+07:00",
+ "updated": "2026-06-27T13:47:00+07:00",
  "entries": [
   {
    "id": "20260627-1228",
    "date": "2026-06-27",
    "start": "12:28",
-   "end": null,
-   "project": "Учёба (самостоятельно)",
-   "task": "Самостоятельный разбор, накидывает инфу наставнику для продолжения учёбы",
-   "minutes_total": null,
+   "end": "13:47",
+   "project": "DSB9 ex00 (line chart) + setup",
+   "task": "Старт DSB9 (визуализация). Настройка venv/ядра. ex00: groupby по дате (.dt.date) + count визитов по дням, переименование колонки (.rename словарь vs SQL AS vs .columns), первый график .plot() (figsize/fontsize/title/rot, line chart, оси из index/values).",
+   "minutes_total": 79,
    "minutes_paused": 0,
-   "minutes_with_ai": 0,
-   "minutes_solo": null,
-   "source": "manual",
+   "minutes_with_ai": 79,
+   "minutes_solo": 0,
+   "source": "claude",
    "self_complexity": null,
-   "mentor_complexity": null,
+   "mentor_complexity": 2,
    "can_repeat_7d": null,
-   "notes": "Время по Пхукету. Самостоятельно. Продолжение следует.",
-   "status": "incomplete"
+   "notes": "Время по Пхукету. ex00 сделан. Разобрали: зачем venv/ядро вообще (изоляция версий — прочувствовал на pandas 2 vs 3), как по скобкам читать тип ({}=dict, []=list, ()=tuple) и спрашивать у Python (type(), метод?). Хорошие мета-вопросы «как ТЫ понял что это словарь» — учится не запоминать, а проверять сам. Дальше ex01 сегодня. ПЛАН: 3 задания/день × 3 дня — вернуться в дедлайн DSB9 (отставание из-за поездки).",
+   "status": "completed"
   },
   {
    "id": "20260626-pr",
@@ -907,6 +907,13 @@
    "planned_minutes": 120,
    "actual_minutes": 60,
    "status": "done"
+  },
+  {
+   "date": "2026-06-27",
+   "task": "DSB9 (визуализация): нагон по 3 задания/день × 3 дня (27-29.06) — вернуться в дедлайн после поездки. ex00 ✅, дальше ex01.",
+   "planned_minutes": null,
+   "actual_minutes": null,
+   "status": "planned"
   }
  ]
 }
