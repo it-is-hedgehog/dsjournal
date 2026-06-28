@@ -1,24 +1,24 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-28T19:45:00+07:00",
+ "updated": "2026-06-28T21:13:00+07:00",
  "entries": [
   {
    "id": "20260628-1945",
    "date": "2026-06-28",
    "start": "19:45",
-   "end": null,
+   "end": "21:13",
    "project": "DSB9 ex03 (bar charts)",
-   "task": "ex03 — будни vs выходные (средние коммиты)",
-   "minutes_total": null,
+   "task": "ex03 — будни vs выходные, СРЕДНЕЕ коммитов за час. Разобрали: какие коммиты брать (все checker, user_%, без фильтров), что нужны hour+weekday+day, среднее = сумма/число дней (поэтому дата нужна).",
+   "minutes_total": 88,
    "minutes_paused": 0,
-   "minutes_with_ai": 0,
-   "minutes_solo": null,
-   "source": "manual",
+   "minutes_with_ai": 88,
+   "minutes_solo": 0,
+   "source": "claude",
    "self_complexity": null,
-   "mentor_complexity": null,
+   "mentor_complexity": 3,
    "can_repeat_7d": null,
-   "notes": "Время по Пхукету. Продолжение следует.",
+   "notes": "Время по Пхукету. СТОП по усталости (мозг не варит) — студент 4 раза перетёр date=weekday несмотря на разбор, ячейки путались (groupby не присвоен, mean() всей таблицы) — классический сигнал утомления после 3 заданий за день. Не стал дописывать кодом (методика: пауза > галочка). Спор «нужна ли дата»: студент думал что нет, доказал эмпирически — среднее макс≈24 vs сумма≈292, и контраст с ex04 («this time без средних») → ex03=среднее, дата обязательна. ЗАВТРА УТРОМ: НЕ перетирать date, сделать 3 колонки (hour/day/is_weekend), потом per(day,hour) count → mean по дням → unstack → bar + markdown (час макс будни/выходные). ex00-02 закрыты сегодня.",
    "status": "incomplete"
   },
   {
