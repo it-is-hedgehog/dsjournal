@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-28T13:40:00+07:00",
+ "updated": "2026-06-28T19:45:00+07:00",
  "entries": [
+  {
+   "id": "20260628-1945",
+   "date": "2026-06-28",
+   "start": "19:45",
+   "end": null,
+   "project": "DSB9 ex03 (bar charts)",
+   "task": "ex03 — будни vs выходные (средние коммиты)",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260628-1158",
    "date": "2026-06-28",
