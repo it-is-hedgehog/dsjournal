@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-27T22:29:00+07:00",
+ "updated": "2026-06-28T11:58:00+07:00",
  "entries": [
+  {
+   "id": "20260628-1158",
+   "date": "2026-06-28",
+   "start": "11:58",
+   "end": null,
+   "project": "DSB9 (самостоятельно)",
+   "task": "Самостоятельно: знакомство с заданием + попытка выполнить (доделать ex01 / ex02 bar)",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету. Самостоятельно, обратится если застрянет. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260627-2009",
    "date": "2026-06-27",
