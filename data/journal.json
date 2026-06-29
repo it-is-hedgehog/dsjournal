@@ -1,25 +1,25 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-29T20:30:00+07:00",
+ "updated": "2026-06-29T22:03:00+07:00",
  "entries": [
   {
    "id": "20260629-2030",
    "date": "2026-06-29",
    "start": "20:30",
-   "end": null,
-   "project": "DSB9 (продолжение)",
-   "task": "Продолжение: добить ex03 / старт ex04",
-   "minutes_total": null,
+   "end": "22:03",
+   "project": "DSB9 ex04 (histogram)",
+   "task": "ex04 гистограмма: plt.hist (matplotlib напрямую vs pandas .plot — кто считает), две маски (working/weekend через ~), детальный разбор работы маски по шагам, bins=range(0,25) (выравнивание корзин по часам + бар 23-24), plt.figure vs plt.Figure (регистр!), value_counts + сравнение колонок маской + fillna(0) для топ-4 markdown.",
+   "minutes_total": 93,
    "minutes_paused": 0,
-   "minutes_with_ai": 0,
-   "minutes_solo": null,
-   "source": "manual",
+   "minutes_with_ai": 93,
+   "minutes_solo": 0,
+   "source": "claude",
    "self_complexity": null,
-   "mentor_complexity": null,
+   "mentor_complexity": 3,
    "can_repeat_7d": null,
-   "notes": "Время по Пхукету. Продолжение следует.",
-   "status": "incomplete"
+   "notes": "Время по Пхукету. Много глубоких мета-вопросов: как работает маска по шагам (детально, изнутри-наружу), чем plt.hist отличается от .plot (кто считает: hist сам бьёт по корзинам vs .plot рисует готовое), где это в реальной работе (matplotlib/pandas/seaborn/plotly — для чего). Поймал свою опечатку plt.Figure (заглавная=класс) vs plt.figure (функция). Заметил расхождения с эталоном (отступ от 0, нет бара 23-24) — оба от bins; bins=range(0,25) починил. ex04 сделан. ИТОГ ДНЯ 29.06: ex03 (утро) + ex04 (вечер) закрыты.",
+   "status": "completed"
   },
   {
    "id": "20260629-1002",
