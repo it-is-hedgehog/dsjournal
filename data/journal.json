@@ -1,8 +1,26 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-06-28T21:13:00+07:00",
+ "updated": "2026-06-29T10:02:00+07:00",
  "entries": [
+  {
+   "id": "20260629-1002",
+   "date": "2026-06-29",
+   "start": "10:02",
+   "end": null,
+   "project": "DSB9 ex03 (продолжение)",
+   "task": "Доделать ex03 (среднее коммитов за час будни/выходные) на свежую голову",
+   "minutes_total": null,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": null,
+   "source": "manual",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Время по Пхукету. Утренний слот после паузы 28.06. Продолжение следует.",
+   "status": "incomplete"
+  },
   {
    "id": "20260628-1945",
    "date": "2026-06-28",
