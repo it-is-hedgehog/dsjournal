@@ -1,5 +1,5 @@
 // DS Journal — Service Worker
-const CACHE_NAME = 'dsjournal-v4';
+const CACHE_NAME = 'dsjournal-v5';
 const ASSETS = [
   './',
   './index.html',

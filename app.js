@@ -103,6 +103,7 @@
   // чистые минуты сессии: конец - старт - паузы (поддержка перехода через полночь)
   function netMinutes(s) {
     if (s.minutes != null) return s.minutes; // записи наставника несут чистое время явно
+    if (!s.start || !s.end) return 0; // открытая/неполная запись — без краша
     const [sh, sm] = s.start.split(':').map(Number);
     const [eh, em] = s.end.split(':').map(Number);
     let mins = (eh * 60 + em) - (sh * 60 + sm);
@@ -212,7 +213,7 @@
     const soloPct = net ? Math.round((Number(s.solo) || 0) / net * 100) : 0;
     div.innerHTML =
       `<div class="session-top"><strong>${escapeHtml(s.project || '—')}</strong>` +
-      `<span>${s.start}–${s.end} · ${fmtMin(net)}</span></div>` +
+      `<span>${(s.start && s.end) ? s.start + '–' + s.end + ' · ' : ''}${fmtMin(net)}</span></div>` +
       `<div class="session-done">${escapeHtml(s.done || '')}</div>` +
       `<div class="session-meta">самост. ${soloPct}%` +
       (s.diffS ? ` · сложн. ${s.diffS}${s.diffM ? '/' + s.diffM : ''}` : '') +
