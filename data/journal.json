@@ -1,25 +1,25 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-07-01T17:28:00+07:00",
+ "updated": "2026-07-01T18:31:00+07:00",
  "entries": [
   {
    "id": "20260701-1728",
    "date": "2026-07-01",
    "start": "17:28",
-   "end": null,
-   "project": "DSB9 (продолжение)",
-   "task": "Продолжение DSB9: ex05 (boxplot) / подготовка к сдаче",
-   "minutes_total": null,
+   "end": "18:31",
+   "project": "DSB9 ex05 (boxplot)",
+   "task": "ex05 boxplot: концепт boxplot (медиана/Q1/Q3/усы/выбросы, IQR=высота ящика), данные из ab-test.csv → 4 набора diff масками (group & time), plt.subplots(1,2, sharey=True) с двумя ax, boxprops/medianprops (ширина линий 3/2), showmeans (треугольник), tick_labels (не labels — версия matplotlib), suptitle/set_title/set_xlabel, IQR control-before ≈150 из графика.",
+   "minutes_total": 63,
    "minutes_paused": 0,
-   "minutes_with_ai": 0,
-   "minutes_solo": null,
-   "source": "manual",
+   "minutes_with_ai": 44,
+   "minutes_solo": 19,
+   "source": "claude",
    "self_complexity": null,
-   "mentor_complexity": null,
+   "mentor_complexity": 3,
    "can_repeat_7d": null,
-   "notes": "Время по Пхукету. Продолжение следует.",
-   "status": "incomplete"
+   "notes": "Время по Пхукету. ~30% solo (пробует сам сначала). Разбирали boxplot с нуля (новый тип графика), много про подписи/оси (suptitle vs set_title vs set_xlabel, sharey). Долго не мог понять сам ВОПРОС про IQR (не концепт, а что от него хотят) — разжевал: одно число = высота ящика control-before ≈150, вписать в markdown. Поймали рассогласование данные↔заголовки панелей (данные after/before стояли верно по эталону, заголовки перепутаны — swap). ex05 график готов, осталось вписать markdown-ответ. DSB9 ex00-05 закрыты.",
+   "status": "completed"
   },
   {
    "id": "20260629-2030",
