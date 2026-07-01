@@ -12,13 +12,13 @@
    "task": "ex05 boxplot: концепт boxplot (медиана/Q1/Q3/усы/выбросы, IQR=высота ящика), данные из ab-test.csv → 4 набора diff масками (group & time), plt.subplots(1,2, sharey=True) с двумя ax, boxprops/medianprops (ширина линий 3/2), showmeans (треугольник), tick_labels (не labels — версия matplotlib), suptitle/set_title/set_xlabel, IQR control-before ≈150 из графика.",
    "minutes_total": 63,
    "minutes_paused": 0,
-   "minutes_with_ai": 44,
-   "minutes_solo": 19,
+   "minutes_with_ai": 57,
+   "minutes_solo": 6,
    "source": "claude",
    "self_complexity": null,
    "mentor_complexity": 3,
    "can_repeat_7d": null,
-   "notes": "Время по Пхукету. ~30% solo (пробует сам сначала). Разбирали boxplot с нуля (новый тип графика), много про подписи/оси (suptitle vs set_title vs set_xlabel, sharey). Долго не мог понять сам ВОПРОС про IQR (не концепт, а что от него хотят) — разжевал: одно число = высота ящика control-before ≈150, вписать в markdown. Поймали рассогласование данные↔заголовки панелей (данные after/before стояли верно по эталону, заголовки перепутаны — swap). ex05 график готов, осталось вписать markdown-ответ. DSB9 ex00-05 закрыты.",
+   "notes": "Время по Пхукету. ~10% solo / 90% с ИИ (студент уточнил — boxplot новый и тяжёлый, много со мной; solo варьируется по сессиям, не всегда 30%). Разбирали boxplot с нуля (новый тип графика), много про подписи/оси (suptitle vs set_title vs set_xlabel, sharey). Долго не мог понять сам ВОПРОС про IQR (не концепт, а что от него хотят) — разжевал: одно число = высота ящика control-before ≈150, вписать в markdown. Поймали рассогласование данные↔заголовки панелей (данные after/before стояли верно по эталону, заголовки перепутаны — swap). ex05 график готов, осталось вписать markdown-ответ. DSB9 ex00-05 закрыты.",
    "status": "completed"
   },
   {
