@@ -1,25 +1,25 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-07-02T10:56:00+07:00",
+ "updated": "2026-07-02T13:23:00+07:00",
  "entries": [
   {
    "id": "20260702-1056",
    "date": "2026-07-02",
    "start": "10:56",
-   "end": null,
+   "end": "13:23",
    "project": "DSB9 ex06 (scatter matrix)",
-   "task": "ex06 — scatter matrix (нелинейные связи, чего корреляция не ловит)",
-   "minutes_total": null,
+   "task": "ex06 scatter matrix: сам понял что данные надо тянуть заново из sqlite (не ab-test.csv). Построил таблицу test-юзеров uid|commits|views|avg_diff по кускам (COUNT commits/views + подзапрос first_commit MIN + дельта JULIANDAY/unixepoch, всё смёржил). Установлен scipy (для KDE). scatter_matrix (s=200, diagonal=kde, density_kwds linewidth). Разобрали: точки=связь двух переменных, диагональ KDE=распределение одной; corr ловит только линейную. 4 markdown-ответа.",
+   "minutes_total": 147,
    "minutes_paused": 0,
-   "minutes_with_ai": 0,
-   "minutes_solo": null,
-   "source": "manual",
+   "minutes_with_ai": 118,
+   "minutes_solo": 29,
+   "source": "claude",
    "self_complexity": null,
-   "mentor_complexity": null,
+   "mentor_complexity": 3.5,
    "can_repeat_7d": null,
-   "notes": "Время по Пхукету. Утренний слот. Продолжение следует.",
-   "status": "incomplete"
+   "notes": "Время по Пхукету. 20% solo (подтвердил студент — сессия тяжёлая, много разбора). РОСТ: сам сообразил, что для ex06 нужны свежие данные из базы (не csv) — правильный инстинкт. Долго не заходил scatter matrix (что такое точки, зачем графики, диагональ) — разжёвывали примитивно (карта сокровищ, флажки, толпа на линии). В итоге ПОНЯЛ: сам развёл клетки-связи (Q1/Q2) и диагональ-распределение (Q3/Q4) в 4 markdown-ответах — все верные. Заметил справедливо: на 11 точках связь читать трудно (мало данных). Ответы: Q1 нет, Q2 связи нет (поправил «не влияет»→«нет связи»), Q3 в основном средние, Q4 около −90. Баги по ходу: наивный join вместо агрегатов, views−commits вместо avg_diff, лишняя скобка, scipy отсутствовал.",
+   "status": "completed"
   },
   {
    "id": "20260701-1728",
