@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-07-03T16:39:00+07:00",
+ "updated": "2026-07-03",
  "entries": [
   {
    "id": "20260703-1339",
@@ -1046,6 +1046,42 @@
    "can_repeat_7d": null,
    "notes": "Первая peer-проверка DSB7 пройдена, 28/30 баллов. Оба минуса — ровно то, что предсказали в разборе 16.06 (ex04 = баг задания, ex05 = CarNumber-индекс vs category). Пир предупредил: дальше в блоках больше опечаток в заданиях. Нужна 2-я проверка для закрытия DSB7. Перед ней — фикс ex05 (reset_index + CarNumber astype category) и re-push.",
    "status": "completed"
+  },
+  {
+   "id": "20260703-pr2",
+   "date": "2026-07-03",
+   "start": null,
+   "end": null,
+   "project": "Peer-review (проверка пира)",
+   "task": "Проверил одного пира — 20 минут.",
+   "minutes_total": 20,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 20,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "20 мин проверки чужой работы перед стартом DSB10. 100% solo.",
+   "status": "completed"
+  },
+  {
+   "id": "20260703-1730",
+   "date": "2026-07-03",
+   "start": "17:30",
+   "end": "19:35",
+   "project": "DSB10 ex00 (старт + предобработка)",
+   "task": "Старт 4-го DS-блока Intro to ML. Теория: supervised/unsupervised, classification/regression, X/y, feature engineering. Пересобрал venv на python 3.13 (был 3.9), поставил sklearn+matplotlib, зарегистрировал ядро. Начал ex00 часть 1 (предобработка) сам.",
+   "minutes_total": 125,
+   "minutes_paused": 0,
+   "minutes_with_ai": 87,
+   "minutes_solo": 38,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "Продолжение следует — завтра. ~30% solo (сам атаковал предобработку до разбора). ОСТАНОВКА на предобработке: студент прочитал csv с header=None и 4 names, но в файле 1 столбец timestamp → am/pm/target вышли фантомными NaN, а date оказался полным timestamp с микросекундами → groupby(date) дал 3207 групп вместо ~35 дней. Верный ход был: ярлык it_am (hour<12) + unstack (вытащил из DSB9 сам). Завтра: прочитать 1 столбец, добыть день через .dt.date, тогда unstack схлопнется в ~35 дней. Логрег (новое) ещё впереди — часть 3.",
+   "status": "in-progress"
   }
  ],
  "plan": [
