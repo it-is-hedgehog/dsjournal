@@ -1154,6 +1154,24 @@
    "can_repeat_7d": null,
    "notes": "30 мин проверки чужой работы. 100% solo.",
    "status": "completed"
+  },
+  {
+   "id": "20260705-1627",
+   "date": "2026-07-05",
+   "start": "16:27",
+   "end": "17:02",
+   "project": "DSB10 ex02 (предобработка: старт)",
+   "task": "ex02 часть 1 старт: собрал базовый df (uid/labname/numTrials/hour/dayofweek через .dt), сделал one-hot категорий (OneHotEncoder → encoded_df с именами). Освежили теорию multiclass+one-hot.",
+   "minutes_total": 35,
+   "minutes_paused": 0,
+   "minutes_with_ai": 25,
+   "minutes_solo": 10,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "~30% solo. Базовый df-пайплайн делает уже ~90% сам (частый паттерн). One-hot блок — с трудом (новый, 1-й раз). ВАЖНЫЙ ФИДБЭК студента (сохранён в память [[feedback-fade-by-repetition-not-single-exposure]]): усваивает по ЧАСТОТЕ повторений, не по показу; большие блоки нельзя «делай сам» после 1 раза; не давить «я же показывал». ОСТАЛОСЬ по ex02 ч.1: шаг C (concat encoded_df + drop uid/labname), StandardScaler чисел, save dayofweek.csv, наивная точность. Потом часть 2 (логрег/SVC/дерево/random forest + feature importance barh) — на отдельную сессию. Продолжение следует.",
+   "status": "in-progress"
   }
  ],
  "plan": [
