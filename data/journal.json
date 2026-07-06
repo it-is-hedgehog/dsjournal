@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-07-05",
+ "updated": "2026-07-06",
  "entries": [
   {
    "id": "20260703-1339",
@@ -1171,6 +1171,24 @@
    "mentor_complexity": null,
    "can_repeat_7d": null,
    "notes": "~30% solo. Базовый df-пайплайн делает уже ~90% сам (частый паттерн). One-hot блок — с трудом (новый, 1-й раз). ВАЖНЫЙ ФИДБЭК студента (сохранён в память [[feedback-fade-by-repetition-not-single-exposure]]): усваивает по ЧАСТОТЕ повторений, не по показу; большие блоки нельзя «делай сам» после 1 раза; не давить «я же показывал». ОСТАЛОСЬ по ex02 ч.1: шаг C (concat encoded_df + drop uid/labname), StandardScaler чисел, save dayofweek.csv, наивная точность. Потом часть 2 (логрег/SVC/дерево/random forest + feature importance barh) — на отдельную сессию. Продолжение следует.",
+   "status": "in-progress"
+  },
+  {
+   "id": "20260706-1952",
+   "date": "2026-07-06",
+   "start": "19:52",
+   "end": "21:02",
+   "project": "DSB10 ex02 (предобработка закрыта + логрег)",
+   "task": "ex02: ЗАКРЫЛ часть 1 предобработки (one-hot переписал руками сам — повтор №2, concat/drop, StandardScaler чисел, dayofweek.csv, наивная 0.235). Часть 2а: обучил логрег для мультикласса (7 классов) → accuracy 0.64, обошёл наивную 0.235.",
+   "minutes_total": 70,
+   "minutes_paused": 0,
+   "minutes_with_ai": 49,
+   "minutes_solo": 21,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 3,
+   "can_repeat_7d": null,
+   "notes": "~30% solo. ПРИМЕНЯЛ новое правило (fade по повторениям): one-hot блок студент НЕ вспомнил с 1 раза (как и предсказывал), разобрали по маленьким чанкам, он собрал сам руками — рабочий метод. Освоил: X=df.drop(target)/y=df[target] для мультикласса; scaler in-place (замена столбцов) vs one-hot (новые столбцы); наивная для 7 классов ниже (0.235 vs 0.71 у бинарной). Баги: NameError (не импортил StandardScaler); incomplete input (не закрыл скобку predict) — правило «незакрытая скобка выше». ОСТАЛОСЬ по ex02: часть 2а важность признаков (barh top-10, coef_ матрица мультикласса, сумма |coef| по классам, оформить функцией) — мясистый новый концепт, отложили на свежую голову; потом SVC/дерево/random forest (каждый + importance). Дедлайн 07.07 завтра — ex02 большой, ex03-05 ещё впереди. Продолжение следует.",
    "status": "in-progress"
   }
  ],
