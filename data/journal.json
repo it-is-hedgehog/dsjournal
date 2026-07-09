@@ -1244,6 +1244,24 @@
       "can_repeat_7d": "частично",
       "notes": "Время по Пхукету. 11:28->12:48 (80) + обед 12:48->13:04 (16, не в счёт) + 13:04->14:23 (79) = 159 мин. Сессия с ИИ -> solo=0. Новые концепты: регрессия (число не класс), RMSE (меньше=лучше), KFold вручную, Regressor-модели, random_state как seed. 3 визуалки-артефакта (uid=паспорт vs поведение; функция crossval по винтикам — ВКЛАДКИ т.к. студент не может прокрутить длинные артефакты; про диагональ). Баги: X/y перепутаны, порядок распаковки split (2й раз!), drop без columns= (мнемоника дана), классиф.паттерн accuracy в регрессии, LogisticRegression вместо LinearRegression, копипаста model_lr в tree/forest predict. Маркеры студента: (1) кросс-валидацию можно автономно (cross_val_score) или самому (свой KFold+crossval); train/test всегда; надо больше кодить чтобы запоминать; (2) перенос — прогноз плановых/фактических затрат, ДДС/денежный поток (регрессия=предсказать число, связал со своим бизнесом); (3) повтор частично. Сложность: студент 3.5 / наставник 4 (первая своя функция с нуля, много ловушек).",
       "status": "done"
+    },
+    {
+      "id": "20260709-2022",
+      "date": "2026-07-09",
+      "start": "20:22",
+      "end": "22:01",
+      "project": "DSB10 ex05 (Кластеризация) — почти закрыт (осталась функция ч.5)",
+      "task": "ex05 части 1-4: предобработка (дроп pageviews); KMeans (labels_, scatter, silhouette 0.445, подбор n_clusters -> 3); DBSCAN (плотность, eps/min_samples, шум -1, silhouette 0.395); AgglomerativeClustering (n_clusters=5, silhouette 0.464 -> лучший) + dendrogram через scipy linkage/ward; качественная проверка кластеров через groupby-профили (без accuracy — unsupervised). Осталось: функция-перебор параметра (часть 5) + чистка по чек-листу + сдача.",
+      "minutes_total": 99,
+      "minutes_paused": 0,
+      "minutes_with_ai": 99,
+      "minutes_solo": 0,
+      "source": "claude",
+      "self_complexity": 3,
+      "mentor_complexity": 4,
+      "can_repeat_7d": "частично",
+      "notes": "Время по Пхукету. 20:22->22:01 = 99 мин, без пауз. Сессия с ИИ -> solo=0. Новые концепты: unsupervised (без учителя, нет y), KMeans (раздача->сдвиг центров), silhouette (a=свои, b=ближайшие чужие, -1..+1), DBSCAN (плотность, шум=-1), Agglomerative (слияние снизу вверх, дендрограмма). 4 визуалки-артефакта (KMeans, silhouette-ползунок, DBSCAN, Agglomerative). ВАЖНО: студент раскрыл — ЧАСТИЧНЫЙ ДАЛЬТОНИК, красный западает (красно-зелёный тип). Agglomerative-визуалку переделал на обводки+номера без цвето-кода. Сохранена память feedback-color-vision. Сложность: студент 3 / наставник 4 (новая парадигма unsupervised + 3 алгоритма + silhouette + дендрограмма за вечер; рабочий процесс fit->labels->scatter->silhouette уже знаком, это сгладило). Повтор частично.",
+      "status": "done"
     }
   ],
   "plan": [
@@ -1292,6 +1310,13 @@
     {
       "date": "2026-07-16",
       "task": "ПОВТОР (очередь): ex04 регрессия с нуля — своя функция crossval (KFold вручную, iloc, root_mean_squared_error, среднее) + scatter actual vs predicted. По возможности на другом датасете. Ответ 09.07 «частично».",
+      "planned_minutes": 90,
+      "actual_minutes": null,
+      "status": "planned"
+    },
+    {
+      "date": "2026-07-17",
+      "task": "ПОВТОР (очередь): кластеризация с нуля — KMeans/DBSCAN/Agglomerative (fit->labels_->silhouette), объяснить своими словами отличия 3 алгоритмов + что такое silhouette. По возможности др. датасет. Ответ 09.07 «частично».",
       "planned_minutes": 90,
       "actual_minutes": null,
       "status": "planned"
