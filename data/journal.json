@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "user": "timos",
-  "updated": "2026-07-08",
+  "updated": "2026-07-09",
   "entries": [
     {
       "id": "20260703-1339",
@@ -1226,6 +1226,24 @@
       "can_repeat_7d": "частично",
       "notes": "Время по Пхукету. 10:50->12:22 (92 мин) + обед 12:22->15:36 (194 мин, не в счёт) + 15:36->17:45 (129 мин) = 221 мин чистых. Сессия с ИИ (наставник вёл разбор) -> solo=0 по макро-методике. 5 интерактивных визуалок-страниц (train/test split, predict_proba, cross-val, матрёшка OvR, plot_importance). Маркеры студента: (1) делить на train/test, гонять через CV и смотреть отклонения — модель может давать эффект, но непостоянный; (2) вопрос переноса не понял; (3) повтор ex03 частично. Баги по пути: drop строки vs columns, Unnamed:0, y_test как Series (не таблица), выравнивание индексов -> .values, liblinear не мультикласс -> OvR, cv крутил вместо max_depth, forest coef_ -> feature_importances_. Сложность: студент 3 / наставник 4 (самое концептуально плотное упражнение блока — overfitting, CV, stratify, матрёшка OvR, joblib; много смысловых ловушек, но студент писал каждую строку сам и вытянул логику).",
       "status": "done"
+    },
+    {
+      "id": "20260709-1128",
+      "date": "2026-07-09",
+      "start": "11:28",
+      "end": "14:23",
+      "project": "DSB10 ex04 (Регрессия) — ЗАКРЫТ",
+      "task": "ex04 пройден. Части 1-3: предобработка (fillna(0), дроп uid+AVG(diff), split); СВОЯ функция crossval (KFold вручную: iloc-срезы по номерам, fit, predict train+test, root_mean_squared_error, копилка+среднее) — собрана по винтикам; прогон 3 регрессоров (LinearRegression/DecisionTreeRegressor/RandomForestRegressor, cv=10): дерево train=0 (зубрит), лес лучший test RMSE 34.4, линейная честная но слабая; часть 3: fit/predict на одном сплите, scatter actual vs predicted + диагональ y=x, markdown-ответ про идеальный график.",
+      "minutes_total": 159,
+      "minutes_paused": 16,
+      "minutes_with_ai": 159,
+      "minutes_solo": 0,
+      "source": "claude",
+      "self_complexity": 3.5,
+      "mentor_complexity": 4,
+      "can_repeat_7d": "частично",
+      "notes": "Время по Пхукету. 11:28->12:48 (80) + обед 12:48->13:04 (16, не в счёт) + 13:04->14:23 (79) = 159 мин. Сессия с ИИ -> solo=0. Новые концепты: регрессия (число не класс), RMSE (меньше=лучше), KFold вручную, Regressor-модели, random_state как seed. 3 визуалки-артефакта (uid=паспорт vs поведение; функция crossval по винтикам — ВКЛАДКИ т.к. студент не может прокрутить длинные артефакты; про диагональ). Баги: X/y перепутаны, порядок распаковки split (2й раз!), drop без columns= (мнемоника дана), классиф.паттерн accuracy в регрессии, LogisticRegression вместо LinearRegression, копипаста model_lr в tree/forest predict. Маркеры студента: (1) кросс-валидацию можно автономно (cross_val_score) или самому (свой KFold+crossval); train/test всегда; надо больше кодить чтобы запоминать; (2) перенос — прогноз плановых/фактических затрат, ДДС/денежный поток (регрессия=предсказать число, связал со своим бизнесом); (3) повтор частично. Сложность: студент 3.5 / наставник 4 (первая своя функция с нуля, много ловушек).",
+      "status": "done"
     }
   ],
   "plan": [
@@ -1267,6 +1285,13 @@
     {
       "date": "2026-07-15",
       "task": "ПОВТОР (очередь): ex03 overfitting с нуля — train/test split (+stratify), cross_val_score(cv=10), сравнить train vs test, увидеть разрыв. По возможности на ДРУГОМ датасете. Ответ 08.07 был «частично».",
+      "planned_minutes": 90,
+      "actual_minutes": null,
+      "status": "planned"
+    },
+    {
+      "date": "2026-07-16",
+      "task": "ПОВТОР (очередь): ex04 регрессия с нуля — своя функция crossval (KFold вручную, iloc, root_mean_squared_error, среднее) + scatter actual vs predicted. По возможности на другом датасете. Ответ 09.07 «частично».",
       "planned_minutes": 90,
       "actual_minutes": null,
       "status": "planned"
