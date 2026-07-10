@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "user": "timos",
-  "updated": "2026-07-09",
+  "updated": "2026-07-10",
   "entries": [
     {
       "id": "20260703-1339",
@@ -1261,6 +1261,24 @@
       "mentor_complexity": 4,
       "can_repeat_7d": "частично",
       "notes": "Время по Пхукету. 20:22->22:01 = 99 мин, без пауз. Сессия с ИИ -> solo=0. Новые концепты: unsupervised (без учителя, нет y), KMeans (раздача->сдвиг центров), silhouette (a=свои, b=ближайшие чужие, -1..+1), DBSCAN (плотность, шум=-1), Agglomerative (слияние снизу вверх, дендрограмма). 4 визуалки-артефакта (KMeans, silhouette-ползунок, DBSCAN, Agglomerative). ВАЖНО: студент раскрыл — ЧАСТИЧНЫЙ ДАЛЬТОНИК, красный западает (красно-зелёный тип). Agglomerative-визуалку переделал на обводки+номера без цвето-кода. Сохранена память feedback-color-vision. Сложность: студент 3 / наставник 4 (новая парадигма unsupervised + 3 алгоритма + silhouette + дендрограмма за вечер; рабочий процесс fit->labels->scatter->silhouette уже знаком, это сгладило). Повтор частично.",
+      "status": "done"
+    },
+    {
+      "id": "20260710-1411",
+      "date": "2026-07-10",
+      "start": "14:11",
+      "end": "19:19",
+      "project": "DSB10 ex05 финиш + СВЕРКА ЧЕК-ЛИСТА + СДАЧА (DSB10 ЗАКРЫТ)",
+      "task": "Финиш ex05 (функция auto_work: перебор параметра, 2 подграфика subplots, защита от <2 кластеров, 3 класса моделей KMeans/DBSCAN/Agg). Полная сверка всех ex00-05 с peer-checklist (dsb10.docx): прогон каждого ноутбука начисто через nbconvert. Совпало: ex00 (acc 0.629/naive 0.714), ex01 (0.743/0.943, листья 6+4), ex02 (1686x44, топы), ex03 (дерево 0.530/лес 0.929), ex04 (df.info 29 строк после drop_duplicates), ex05 (KMeans=8/DBSCAN eps22 min1/Agg=8/дендрограмма). Фиксы: ex00 MD24 ответ, ex00 df.info+date-столбец, ex04 drop_duplicates+df.info (утечка дублей). Расхождения = версии (sklearn 1.9 SVC 0.716 vs 0.618, логрег-топ; pandas 3.0 str vs object) — не ошибки. Переименованы файлы без _RU (ex02 -> multiclassi по README). .gitignore для venv 438МБ. Создана ветка develop, push в GitLab School21. DSB10 СДАН.",
+      "minutes_total": 202,
+      "minutes_paused": 106,
+      "minutes_with_ai": 202,
+      "minutes_solo": 0,
+      "source": "claude",
+      "self_complexity": null,
+      "mentor_complexity": null,
+      "can_repeat_7d": null,
+      "notes": "Время по Пхукету. 14:11->15:16 (65) + обед 15:16->17:02 (106, не в счёт) + 17:02->19:19 (137) = 202 мин. Подготовка файлов к сдаче (сверка+чистка+push) = 137 мин. Студент ушёл на peer-review. Много визуалок под дальтонизм (форма+номер вместо цвета, без красного): границы решений meshgrid, 4 алгоритма, LG vs SVC (перетаскивание точки), 3D KMeans/DBSCAN, функция optimize по строкам. ВЕСЬ DSB10 (ex00-05) закрыт и сдан в develop.",
       "status": "done"
     }
   ],
