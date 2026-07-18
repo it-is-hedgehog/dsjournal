@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-07-17T20:16:57+07:00",
+ "updated": "2026-07-18T18:43:23+07:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1387,6 +1387,24 @@
    "mentor_complexity": null,
    "can_repeat_7d": null,
    "notes": "Устал — СТОП по правилу",
+   "status": "incomplete"
+  },
+  {
+   "id": "20260718-1711",
+   "date": "2026-07-18",
+   "start": "17:11",
+   "end": "18:41",
+   "project": "DSB11 ex02",
+   "task": "Метрики: блоки 5-6 сам (анализ ошибок day/lab/user, функция result_models zip+**param) + теория precision/recall/ROC AUC",
+   "minutes_total": 90,
+   "minutes_paused": 0,
+   "minutes_with_ai": 30,
+   "minutes_solo": 60,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 3,
+   "can_repeat_7d": "partial",
+   "notes": "stratify fix → числа совпали с эталоном; затык на idxmax разобран",
    "status": "incomplete"
   }
  ],
