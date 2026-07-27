@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-07-27T12:16:56+07:00",
+ "updated": "2026-07-27T12:20:40+07:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1531,6 +1531,24 @@
    "mentor_complexity": 4,
    "can_repeat_7d": "partial",
    "notes": "5 классов работают; чек-лист пройден (расхождения=sklearn 1.9); запушено School21 develop. DSB11 СДАН",
+   "status": "complete"
+  },
+  {
+   "id": "20260727-1121",
+   "date": "2026-07-27",
+   "start": "11:21",
+   "end": "12:15",
+   "project": "python_work Мэтиз",
+   "task": "Самостоятельное обучение по книге «Изучаем Python» (тема не уточнена)",
+   "minutes_total": 54,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 54,
+   "source": "self",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "100% самостоятельно, без ИИ",
    "status": "complete"
   }
  ],
