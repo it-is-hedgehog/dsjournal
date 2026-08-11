@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-07-27T12:20:40+07:00",
+ "updated": "2026-08-11T11:47:37+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1544,6 +1544,24 @@
    "minutes_paused": 0,
    "minutes_with_ai": 0,
    "minutes_solo": 54,
+   "source": "self",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "100% самостоятельно, без ИИ",
+   "status": "complete"
+  },
+  {
+   "id": "20260811-0954",
+   "date": "2026-08-11",
+   "start": "09:54",
+   "end": "11:46",
+   "project": "python_work Мэтиз",
+   "task": "Самостоятельное изучение книги «Изучаем Python» (тема не уточнена)",
+   "minutes_total": 112,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 112,
    "source": "self",
    "self_complexity": null,
    "mentor_complexity": null,
