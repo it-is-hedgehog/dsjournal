@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-08-13T20:57:34+03:00",
+ "updated": "2026-08-14T11:44:24+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1603,6 +1603,24 @@
    "mentor_complexity": 2,
    "can_repeat_7d": "partial",
    "notes": "~40мин настройка (venv/данные/PyCharm); затык unsupervised+классиф.=невозможно; на завтра Q2б/Q3/Q4 + EDA",
+   "status": "incomplete"
+  },
+  {
+   "id": "20260814-0827",
+   "date": "2026-08-14",
+   "start": "08:27",
+   "end": "11:23",
+   "project": "ML-1 Фаза1",
+   "task": "Теория Q1-Q4 закрыта (multiclass/multilabel, свести регрессию к классиф.) + старт EDA (загрузка train.json 49352x15, info/describe/corr)",
+   "minutes_total": 56,
+   "minutes_paused": 120,
+   "minutes_with_ai": 34,
+   "minutes_solo": 22,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 2,
+   "can_repeat_7d": "partial",
+   "notes": "дерево решений пробило затык supervised/unsupervised; Q3 сформулировал сам (ИЛИ/И); дальше EDA + статистика руками",
    "status": "incomplete"
   }
  ],
