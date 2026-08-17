@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-08-14T12:20:44+03:00",
+ "updated": "2026-08-17T21:13:59+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1640,6 +1640,24 @@
    "can_repeat_7d": null,
    "notes": "100% самостоятельно, без ИИ",
    "status": "complete"
+  },
+  {
+   "id": "20260816-1223",
+   "date": "2026-08-16",
+   "start": "12:23",
+   "end": "14:13",
+   "project": "ML-1 Фаза1",
+   "task": "EDA: математика корреляции (4 квадранта→ковариация→r), чтение матрицы corr, numeric_only",
+   "minutes_total": 110,
+   "minutes_paused": 0,
+   "minutes_with_ai": 66,
+   "minutes_solo": 44,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 2,
+   "can_repeat_7d": "partial",
+   "notes": "corr сам изучил заранее; разобрали откуда r∈[-1;1] (cov/std); связь price слабая со всеми числ.признаками",
+   "status": "incomplete"
   }
  ],
  "plan": [
