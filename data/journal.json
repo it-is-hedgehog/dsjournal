@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-08-17T22:05:08+03:00",
+ "updated": "2026-08-18T19:17:39+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1675,6 +1675,24 @@
    "mentor_complexity": 2,
    "can_repeat_7d": "partial",
    "notes": "научная запись e+06; quantile=порог; зачем скобки в фильтре (& приоритет); гистограмма 1 столбик из-за выброса $4.49M",
+   "status": "incomplete"
+  },
+  {
+   "id": "20260818-1618",
+   "date": "2026-08-18",
+   "start": "16:18",
+   "end": "19:16",
+   "project": "ML-1 Фаза1",
+   "task": "EDA: boxplot/IQR, глубокий разбор логарифма (ln, почему стандарт ML, .skew), KDE (свой визуал), концепты статьи про распределения",
+   "minutes_total": 150,
+   "minutes_paused": 28,
+   "minutes_with_ai": 95,
+   "minutes_solo": 55,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 3,
+   "can_repeat_7d": "partial",
+   "notes": "skew price 2.0→log 0.6; KDE=сумма гауссовых холмиков; статью не переводил (авторское)-дал концепты; не решён выбор стат-блок; interest_level encode не сделан",
    "status": "incomplete"
   }
  ],
