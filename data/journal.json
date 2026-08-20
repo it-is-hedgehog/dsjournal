@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-08-18T19:17:39+03:00",
+ "updated": "2026-08-20T12:23:16+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1694,6 +1694,24 @@
    "can_repeat_7d": "partial",
    "notes": "skew price 2.0→log 0.6; KDE=сумма гауссовых холмиков; статью не переводил (авторское)-дал концепты; не решён выбор стат-блок; interest_level encode не сделан",
    "status": "incomplete"
+  },
+  {
+   "id": "20260820-1019",
+   "date": "2026-08-20",
+   "start": "10:19",
+   "end": "12:17",
+   "project": "python_work Мэтиз",
+   "task": "Самостоятельное изучение книги «Изучаем Python» (тема не уточнена)",
+   "minutes_total": 118,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 118,
+   "source": "self",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "100% самостоятельно, без ИИ",
+   "status": "complete"
   }
  ],
  "plan": [
