@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-08-20T12:23:16+03:00",
+ "updated": "2026-08-20T20:35:01+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1712,6 +1712,24 @@
    "can_repeat_7d": null,
    "notes": "100% самостоятельно, без ИИ",
    "status": "complete"
+  },
+  {
+   "id": "20260820-1823",
+   "date": "2026-08-20",
+   "start": "18:23",
+   "end": "20:33",
+   "project": "ML-1 Фаза1",
+   "task": "EDA: interest_level encode, corr после чистки (0.07→0.61!), heatmap, boxplot по группам для дискретных признаков",
+   "minutes_total": 110,
+   "minutes_paused": 20,
+   "minutes_with_ai": 66,
+   "minutes_solo": 44,
+   "source": "claude",
+   "self_complexity": null,
+   "mentor_complexity": 2,
+   "can_repeat_7d": "partial",
+   "notes": "выбросы маскировали связь (bathrooms 0.07→0.61); scatter overplotting → boxplot по группам показал тренд; поправки в ноуте (нормализация→логарифм, skew коммент)",
+   "status": "incomplete"
   }
  ],
  "plan": [
