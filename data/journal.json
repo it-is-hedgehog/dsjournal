@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "user": "timos",
- "updated": "2026-08-20T20:35:01+03:00",
+ "updated": "2026-09-02T20:50:36+03:00",
  "entries": [
   {
    "id": "20260518-2117",
@@ -1730,6 +1730,42 @@
    "can_repeat_7d": "partial",
    "notes": "выбросы маскировали связь (bathrooms 0.07→0.61); scatter overplotting → boxplot по группам показал тренд; поправки в ноуте (нормализация→логарифм, skew коммент)",
    "status": "incomplete"
+  },
+  {
+   "id": "20260902-1715",
+   "date": "2026-09-02",
+   "start": "17:15",
+   "end": "19:15",
+   "project": "python_work Мэтиз",
+   "task": "Самостоятельное изучение книги «Изучаем Python» (тема не уточнена)",
+   "minutes_total": 120,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 120,
+   "source": "self",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "100% самостоятельно, без ИИ",
+   "status": "complete"
+  },
+  {
+   "id": "20260902-1944",
+   "date": "2026-09-02",
+   "start": "19:44",
+   "end": "20:48",
+   "project": "python_work Мэтиз",
+   "task": "Самостоятельное изучение книги «Изучаем Python», блок 2 (тема не уточнена)",
+   "minutes_total": 64,
+   "minutes_paused": 0,
+   "minutes_with_ai": 0,
+   "minutes_solo": 64,
+   "source": "self",
+   "self_complexity": null,
+   "mentor_complexity": null,
+   "can_repeat_7d": null,
+   "notes": "100% самостоятельно, без ИИ",
+   "status": "complete"
   }
  ],
  "plan": [
